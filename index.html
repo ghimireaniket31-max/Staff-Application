@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ken Hub | Staff Apply</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #050505;
+    color: white;
+    min-height: 100vh;
+    padding: 30px 15px;
+}
+
+header {
+    text-align: center;
+    padding: 45px 10px;
+}
+
+.logo {
+    font-size: 38px;
+    font-weight: 900;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: #888;
+}
+
+header p {
+    color: #999;
+    margin-top: 12px;
+}
+
+.container {
+    max-width: 650px;
+    margin: auto;
+    background: #101010;
+    border: 1px solid #292929;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.progress {
+    height: 5px;
+    background: #292929;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    width: 33.33%;
+    background: white;
+    transition: .3s;
+}
+
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+}
+
+label {
+    display: block;
+    margin: 18px 0 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+input, textarea, select {
+    width: 100%;
+    background: #080808;
+    border: 1px solid #333;
+    color: white;
+    padding: 13px;
+    border-radius: 7px;
+    outline: none;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: white;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+select[multiple] {
+    min-height: 145px;
+}
+
+small {
+    color: #888;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+button {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    border-radius: 7px;
+    background: white;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+
+button:hover {
+    background: #ccc;
+}
+
+button.secondary {
+    background: #252525;
+    color: white;
+}
+
+button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.success {
+    display: none;
+    text-align: center;
+    padding: 35px 5px;
+}
+
+.success h2 {
+    margin-bottom: 15px;
+}
+
+.success p {
+    color: #aaa;
+    line-height: 1.7;
+}
+
+footer {
+    text-align: center;
+    color: #666;
+    margin-top: 30px;
+    font-size: 12px;
+}
+
+@media(max-width: 500px) {
+    .container {
+        padding: 20px;
+    }
+
+    .logo {
+        font-size: 29px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">KEN <span>HUB</span></div>
+    <p>Official Staff Recruitment Portal</p>
+</header>
+
+<div class="container">
+
+<div id="application">
+
+    <h2>Staff Application</h2>
+    <p class="subtitle">Apply to become a member of the Ken Hub team.</p>
+
+    <div class="progress">
+        <div class="progress-bar" id="progress"></div>
+    </div>
+
+    <form id="applyForm">
+
+    <!-- STEP 1 -->
+    <div class="step active">
+
+        <h3>Personal Information</h3>
+
+        <label>Discord Username *</label>
+        <input name="username" placeholder="Enter Discord username" required>
+
+        <label>Discord User ID *</label>
+        <input name="discordId" placeholder="Enter Discord User ID" required>
+
+        <label>Age *</label>
+        <input name="age" type="number" min="13" max="100" required>
+
+        <label>Timezone *</label>
+        <input name="timezone" placeholder="Example: GMT +5:45" required>
+
+        <label>Which position are you applying for? *</label>
+        <select name="position" required>
+            <option value="">Select position</option>
+            <option>Moderator</option>
+            <option>Administrator</option>
+            <option>Developer</option>
+            <option>Support Team</option>
+            <option>Community Manager</option>
+        </select>
+
+        <label>How many hours can you be active daily? *</label>
+        <input name="activity" placeholder="Example: 3-5 hours" required>
+
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="step">
+
+        <h3>Experience & Knowledge</h3>
+
+        <label>Why do you want to join Ken Hub? *</label>
+        <textarea name="reason" required></textarea>
+
+        <label>Do you have previous staff experience? *</label>
+        <select name="experience" required>
+            <option value="">Select</option>
+            <option>Yes</option>
+            <option>No</option>
+        </select>
+
+        <label>Explain your previous experience</label>
+        <textarea name="experienceDetails"></textarea>
+
+        <label>How would you handle a rule-breaking member? *</label>
+        <textarea name="ruleHandling" required></textarea>
+
+        <label>How would you handle an argument between members? *</label>
+        <textarea name="conflict" required></textarea>
+
+        <label>What would you do if a staff member abused permissions? *</label>
+        <textarea name="abuse" required></textarea>
+
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="step">
+
+        <h3>Programming Knowledge</h3>
+
+        <label>Do you know programming? *</label>
+        <select name="programming" required>
+            <option value="">Select</option>
+            <option>Yes</option>
+            <option>No</option>
+        </select>
+
+        <label>Which programming languages do you know?</label>
+        <small>Hold CTRL on PC or select multiple options on supported mobile browsers.</small>
+
+        <select name="languages" multiple>
+            <option>Lua / Luau</option>
+            <option>JavaScript</option>
+            <option>Python</option>
+            <option>HTML</option>
+            <option>CSS</option>
+            <option>Java</option>
+            <option>C++</option>
+            <option>C#</option>
+            <option>PHP</option>
+            <option>TypeScript</option>
+            <option>Other</option>
+            <option>None</option>
+        </select>
+
+        <label>Programming skill level</label>
+        <select name="skill">
+            <option>Beginner</option>
+            <option>Intermediate</option>
+            <option>Advanced</option>
+            <option>Expert</option>
+            <option>No experience</option>
+        </select>
+
+        <label>How long have you been programming?</label>
+        <input name="programmingTime" placeholder="Example: 1 year">
+
+        <label>What can you create using your programming knowledge?</label>
+        <textarea name="projects"></textarea>
+
+        <label>Why should we choose you? *</label>
+        <textarea name="choose" required></textarea>
+
+        <label>What can you contribute to Ken Hub? *</label>
+        <textarea name="contribution" required></textarea>
+
+        <label>Do you agree to follow Ken Hub staff rules? *</label>
+        <select name="agreement" required>
+            <option value="">Select</option>
+            <option>Yes</option>
+            <option>No</option>
+        </select>
+
+    </div>
+
+    <div class="buttons">
+        <button type="button" class="secondary" id="back" onclick="changeStep(-1)" style="display:none">Back</button>
+        <button type="button" id="next" onclick="changeStep(1)">Next</button>
+        <button type="submit" id="submit" style="display:none">Submit Application</button>
+    </div>
+
+    </form>
+</div>
+
+<div class="success" id="success">
+    <h2>Application Submitted!</h2>
+    <p>Your staff application has been successfully submitted to Ken Hub.</p>
+    <p>Our management team will review your application.</p>
+</div>
+
+</div>
+
+<footer>
+    © 2026 Ken Hub Staff Recruitment System
+</footer>
+
+<script>
+let currentStep = 0;
+
+const steps = document.querySelectorAll(".step");
+const progress = document.getElementById("progress");
+const back = document.getElementById("back");
+const next = document.getElementById("next");
+const submit = document.getElementById("submit");
+const form = document.getElementById("applyForm");
+
+function showStep() {
+    steps.forEach((step, index) => {
+        step.classList.toggle("active", index === currentStep);
+    });
+
+    progress.style.width = ((currentStep + 1) / steps.length * 100) + "%";
+
+    back.style.display = currentStep === 0 ? "none" : "block";
+    next.style.display = currentStep === steps.length - 1 ? "none" : "block";
+    submit.style.display = currentStep === steps.length - 1 ? "block" : "none";
+}
+
+function changeStep(direction) {
+    if (direction === 1) {
+        const fields = steps[currentStep].querySelectorAll("input, textarea, select");
+
+        for (const field of fields) {
+            if (!field.checkValidity()) {
+                field.reportValidity();
+                return;
+            }
+        }
+    }
+
+    currentStep += direction;
+    showStep();
+}
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (!form.reportValidity()) return;
+
+    submit.disabled = true;
+    submit.textContent = "Submitting...";
+
+    const data = {};
+
+    new FormData(form).forEach((value, key) => {
+        if (data[key]) {
+            data[key] += ", " + value;
+        } else {
+            data[key] = value;
+        }
+    });
+
+    const languages = form.elements.languages;
+    data.languages = Array.from(languages.selectedOptions)
+        .map(option => option.value);
+
+    try {
+        const response = await fetch("/api/apply", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (!response.ok) {
+            throw new Error("Submission failed");
+        }
+
+        document.getElementById("application").style.display = "none";
+        document.getElementById("success").style.display = "block";
+
+    } catch (error) {
+        alert("Unable to submit application. Please try again.");
+        submit.disabled = false;
+        submit.textContent = "Submit Application";
+    }
+});
+
+showStep();
+</script>
+
+</body>
+</html>
